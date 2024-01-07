@@ -17,6 +17,7 @@ var completedTasksHolder=document.querySelector(".tasks-list_completed");//compl
 var createNewTaskElement=function(taskString){
 
   var listItem=document.createElement("li");
+  listItem.classList = 'tasks-list__item';
 
   //input (checkbox)
   var checkBox=document.createElement("input");//checkbx
@@ -36,8 +37,9 @@ var createNewTaskElement=function(taskString){
 
   //Each elements, needs appending
   checkBox.type="checkbox";
+  checkBox.classList = 'tasks-list__input_type_checkbox';
   editInput.type="text";
-  editInput.className="input-text";
+  editInput.className="input-text tasks-list__element_hidden tasks-list__input_type_text";
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
   editButton.className="button button_type_edit";
@@ -85,21 +87,25 @@ var editTask=function(){
   var editInput=listItem.querySelector('input[type=text]');
   var label=listItem.querySelector("label");
   var editBtn=listItem.querySelector(".button_type_edit");
-  var containsClass=listItem.classList.contains("task-list_mode_edit");
+  var containsClass=listItem.classList.contains("tasks-list__item_mode_edit");
   //If class of the parent is .editmode
   if(containsClass){
 
   //switch to .editmode
   //label becomes the inputs value.
   label.innerText=editInput.value;
+	label.classList.remove('tasks-list__element_hidden')
+	editInput.classList.add('tasks-list__element_hidden')
   editBtn.innerText="Edit";
   }else{
   editInput.value=label.innerText;
+	editInput.classList.remove('tasks-list__element_hidden')
+	label.classList.add('tasks-list__element_hidden')
   editBtn.innerText="Save";
   }
 
-  //toggle .editmode on the parent.
-  listItem.classList.toggle("task-list_mode_edit");
+  //toggle editmode on the parent.
+  listItem.classList.toggle("tasks-list__item_mode_edit");
 };
 
 
