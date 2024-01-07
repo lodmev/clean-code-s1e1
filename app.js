@@ -9,6 +9,7 @@
 // Event handling, user interaction is what starts the code execution.
 
 var taskInput=document.getElementById("task-desc");//Add a new task.
+var addingForm = document.querySelector('.adding-form');
 var addButton=document.getElementsByTagName("button")[0];//first button
 var incompleteTaskHolder=document.querySelector(".tasks-list");//ul of #incompleteTasks
 var completedTasksHolder=document.querySelector(".tasks-list_completed");//completed-tasks
@@ -61,8 +62,9 @@ var createNewTaskElement=function(taskString){
 
 
 
-var addTask=function(){
+var addTask=function(e){
   console.log("Add Task...");
+  e.preventDefault();
   //Create a new list item with the text from the #adding-form__input:
   if (!taskInput.value) return;
   var listItem=createNewTaskElement(taskInput.value);
@@ -153,8 +155,8 @@ var ajaxRequest=function(){
 
 
 //Set the click handler to the addTask function.
-addButton.onclick=addTask;
 addButton.addEventListener("click",addTask);
+addingForm.addEventListener('submit', addTask);
 addButton.addEventListener("click",ajaxRequest);
 
 
