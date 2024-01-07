@@ -35,9 +35,11 @@
 .adding-form__controls {
   display: flex;
 }
-ul {
+ul,
+fieldset {
   margin: 0;
   padding: 0px;
+  border: none;
 }
 li,
 h3 {
