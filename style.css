@@ -27,7 +27,7 @@
   width: 500px;
   margin: 0 auto 0;
 }
-.label {
+.tasks-list__task-desc {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
@@ -106,7 +106,7 @@ button {
 .tasks-list__input_type_checkbox {
   margin: 0 10px;
 }
-.tasks-list__item .label {
+.tasks-list__item .tasks-list__task-desc {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
@@ -125,7 +125,7 @@ button {
 }
 
 /* Completed */
-.tasks-list_completed .label {
+.tasks-list_completed .tasks-list__task-desc {
   text-decoration: line-through;
   color: #888;
 }
